@@ -1,19 +1,26 @@
 package com.staging.models;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="user")
+@Table(name="account")
 public class Account {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@OneToMany(mappedBy = "account", cascade = { CascadeType.ALL })
+	private Set<Request> request;
 	
 	@Column
 	private String username;
@@ -23,7 +30,6 @@ public class Account {
 
 	public Account() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Account(int id, String username, String password) {
