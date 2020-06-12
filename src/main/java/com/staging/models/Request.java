@@ -1,11 +1,15 @@
 package com.staging.models;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.OnDelete;
@@ -29,21 +33,61 @@ public class Request {
 	private int player;
 	private int skill_level;
 	private String time_schedule;
+	private String address;
+	
+	@OneToMany(mappedBy = "request", cascade = { CascadeType.ALL })
+	private Set<Participants> participants;
 	
 	
+	public String getAddress() {
+		return address;
+	}
+
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+
+	public Account getAccount() {
+		return account;
+	}
+
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+
+
+	public Set<Participants> getParticipants() {
+		return participants;
+	}
+
+
+	public void setParticipants(Set<Participants> participants) {
+		this.participants = participants;
+	}
+
+
 	public Request() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 
-	public Request(int id, String sport_type, int player, int skill_level, String time_schedule) {
+
+
+
+	public Request(int id, Account account, String sport_type, int player, int skill_level, String time_schedule,
+			String address) {
 		super();
 		this.id = id;
+		this.account = account;
 		this.sport_type = sport_type;
 		this.player = player;
 		this.skill_level = skill_level;
 		this.time_schedule = time_schedule;
+		this.address = address;
 	}
 
 
