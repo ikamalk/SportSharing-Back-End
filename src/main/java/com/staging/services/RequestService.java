@@ -1,6 +1,7 @@
 package com.staging.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,7 +35,15 @@ public class RequestService {
 	
 	
 	
-	/*public Request updateRequest(Request r){
-		//return requestDao.u
-	}*/
+	public Request updateRequest(Request r){
+		Optional<Request> requestEntity = requestDao.findById(r.getId());
+		Request request = requestEntity.get();
+		request.setAddress(r.getAddress());
+		//request.setParticipants(r.getParticipants());
+		request.setPlayer(r.getPlayer());
+		request.setSkill_level(r.getSkill_level());
+		request.setSport_type(r.getSport_type());
+		request.setTime_schedule(r.getTime_schedule());
+		return requestDao.save(request);
+	}
 }

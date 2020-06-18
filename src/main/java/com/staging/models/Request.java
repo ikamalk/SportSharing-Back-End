@@ -36,7 +36,7 @@ public class Request {
 	private String address;
 	
 	@OneToMany(mappedBy = "request", cascade = { CascadeType.ALL })
-	private Set<Participants> participants;
+	private Set<Participant> participant;
 	
 	
 	public String getAddress() {
@@ -56,16 +56,6 @@ public class Request {
 
 	public void setAccount(Account account) {
 		this.account = account;
-	}
-
-
-	public Set<Participants> getParticipants() {
-		return participants;
-	}
-
-
-	public void setParticipants(Set<Participants> participants) {
-		this.participants = participants;
 	}
 
 

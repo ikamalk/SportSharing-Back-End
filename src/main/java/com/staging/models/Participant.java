@@ -11,8 +11,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 @Entity
-@Table(name="participants")
-public class Participants {
+@Table(name="participant")
+public class Participant {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,9 +25,9 @@ public class Participants {
 	private int accountId;
 	private String name;
 	private int age;
-	private int phoneNumber;
+	private String phoneNumber;
 	
-	public Participants(int id, Request request, int accountId, String name, int age, int phoneNumber) {
+	public Participant(int id, Request request, int accountId, String name, int age, String phoneNumber) {
 		super();
 		this.id = id;
 		this.request = request;
@@ -60,14 +60,20 @@ public class Participants {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public Participants() {
+	public Participant() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	public Request getRequest() {
+		return request;
+	}
+	public void setRequest(Request request) {
+		this.request = request;
 	}
 }

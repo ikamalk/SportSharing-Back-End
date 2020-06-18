@@ -28,10 +28,10 @@ public class RequestController {
 		return requestService.getRequestByAccountId(id);
 	}
 	
-	/*@PostMapping("request/update")
+	@PostMapping("request/update")
 	public Request updateRequest(@RequestBody Request r) {
-		return requestService.setRequest(r);
-	}*/
+		return requestService.updateRequest(r);
+	}
 	
 	@PostMapping("request/set")
 	public Request setRequest(@RequestBody Request r) {
