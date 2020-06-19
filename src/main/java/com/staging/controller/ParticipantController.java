@@ -10,16 +10,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.staging.models.Participant;
+import com.staging.models.Request;
 import com.staging.services.ParticipantService;
+import com.staging.services.RequestService;
 @RestController
 public class ParticipantController {
 
 	@Autowired
 	ParticipantService participantService;
+	@Autowired
+	RequestService requestService;
 	
 	
 	@PostMapping("participant/set")
 	public Participant setParticipant(@RequestBody Participant p) {
+		Request request = requestService.getRequestById(p.getRequest().getId());
+		request.setPlayer_miss(request.getPlayer_miss() - 1);
+		requestService.updateRequest(request);
 		return participantService.setParticipant(p);
 	}
 	

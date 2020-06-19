@@ -31,10 +31,21 @@ public class Request {
 	private Account account;
 	private String sport_type;
 	private int player;
+	private int player_miss;
 	private int skill_level;
 	private String time_schedule;
 	private String address;
 	
+	public int getPlayer_miss() {
+		return player_miss;
+	}
+
+
+	public void setPlayer_miss(int player_miss) {
+		this.player_miss = player_miss;
+	}
+
+
 	@OneToMany(mappedBy = "request", cascade = { CascadeType.ALL })
 	private Set<Participant> participant;
 	
@@ -65,19 +76,18 @@ public class Request {
 	}
 
 
-
-
-
-	public Request(int id, Account account, String sport_type, int player, int skill_level, String time_schedule,
-			String address) {
+	public Request(int id, Account account, String sport_type, int player, int player_miss, int skill_level,
+			String time_schedule, String address, Set<Participant> participant) {
 		super();
 		this.id = id;
 		this.account = account;
 		this.sport_type = sport_type;
 		this.player = player;
+		this.player_miss = player_miss;
 		this.skill_level = skill_level;
 		this.time_schedule = time_schedule;
 		this.address = address;
+		this.participant = participant;
 	}
 
 

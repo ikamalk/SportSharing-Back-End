@@ -41,6 +41,17 @@ public class Account {
 	@Column
 	private String state;
 	
+	@Column
+	private String birthday;
+	
+	public String getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
+	}
+
 	public String getFirstname() {
 		return firstname;
 	}
@@ -87,8 +98,9 @@ public class Account {
 
 
 
+
 	public Account(int id, Set<Request> request, String firstname, String lastname, String username, String password,
-			String phoneNumber, String city, String state) {
+			String phoneNumber, String city, String state, String birthday) {
 		super();
 		this.id = id;
 		this.request = request;
@@ -99,6 +111,7 @@ public class Account {
 		this.phoneNumber = phoneNumber;
 		this.city = city;
 		this.state = state;
+		this.birthday = birthday;
 	}
 
 	public int getId() {

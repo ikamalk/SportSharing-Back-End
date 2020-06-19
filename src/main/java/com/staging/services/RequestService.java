@@ -24,6 +24,11 @@ public class RequestService {
 	public List<Request> getRequestByAccountId(int id){
 		return requestDao.findByAccount_id(id);
 	}
+	
+	public Request getRequestById(int id){
+		Optional<Request> requestEntity = requestDao.findById(id);
+		return requestEntity.get();
+	}
 
 	public Request setRequest(Request r){
 		return requestDao.save(r);
@@ -44,6 +49,7 @@ public class RequestService {
 		request.setSkill_level(r.getSkill_level());
 		request.setSport_type(r.getSport_type());
 		request.setTime_schedule(r.getTime_schedule());
+		request.setPlayer_miss(r.getPlayer_miss());
 		return requestDao.save(request);
 	}
 }
