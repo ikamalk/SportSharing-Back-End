@@ -2,7 +2,9 @@ package com.staging.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +15,7 @@ import com.staging.models.Participant;
 import com.staging.models.Request;
 import com.staging.services.ParticipantService;
 import com.staging.services.RequestService;
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class ParticipantController {
 
