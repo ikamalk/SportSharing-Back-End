@@ -41,9 +41,9 @@ public class AuthenticationController {
 	}
 	
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	@GetMapping("/hello")
+	@GetMapping("/")
 	public ResponseEntity<?> hello() {
-		return ResponseEntity.ok("ok");
+		return ResponseEntity.ok("pickup");
 	}
 	
 	
