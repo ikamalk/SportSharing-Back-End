@@ -35,7 +35,37 @@ public class Request {
 	private int skill_level;
 	private String time_schedule;
 	private String address;
+	private double lat;
+	private double lng;
+	private boolean expired;
+	private boolean completed;
+	private double distance;
+	private double duration;
 	
+	
+	public double getDistance() {
+		return distance;
+	}
+
+	
+
+	public double getDuration() {
+		return duration;
+	}
+
+
+
+	public void setDuration(double duration) {
+		this.duration = duration;
+	}
+
+
+
+	public void setDistance(double distance) {
+		this.distance = distance;
+	}
+
+
 	public int getPlayer_miss() {
 		return player_miss;
 	}
@@ -77,7 +107,8 @@ public class Request {
 
 
 	public Request(int id, Account account, String sport_type, int player, int player_miss, int skill_level,
-			String time_schedule, String address, Set<Participant> participant) {
+			String time_schedule, String address, double lat, double lng, boolean expired, boolean completed,
+			double distance, double duration, Set<Participant> participant) {
 		super();
 		this.id = id;
 		this.account = account;
@@ -87,7 +118,54 @@ public class Request {
 		this.skill_level = skill_level;
 		this.time_schedule = time_schedule;
 		this.address = address;
+		this.lat = lat;
+		this.lng = lng;
+		this.expired = expired;
+		this.completed = completed;
+		this.distance = distance;
+		this.duration = duration;
 		this.participant = participant;
+	}
+
+
+
+	public double getLat() {
+		return lat;
+	}
+
+
+	public void setLat(double lat) {
+		this.lat = lat;
+	}
+
+
+	public double getLng() {
+		return lng;
+	}
+
+
+	public void setLng(double lng) {
+		this.lng = lng;
+	}
+
+
+	public boolean isExpired() {
+		return expired;
+	}
+
+
+	public void setExpired(boolean expired) {
+		this.expired = expired;
+	}
+
+
+	public boolean isCompleted() {
+		return completed;
+	}
+
+
+	public void setCompleted(boolean completed) {
+		this.completed = completed;
 	}
 
 
@@ -139,6 +217,7 @@ public class Request {
 	public void setTime_schedule(String time_schedule) {
 		this.time_schedule = time_schedule;
 	}
+
 	
 	
 	

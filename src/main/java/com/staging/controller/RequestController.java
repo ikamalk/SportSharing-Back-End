@@ -19,9 +19,9 @@ public class RequestController {
 	@Autowired
 	RequestService requestService;
 	
-	@GetMapping("request/getall")
-	public List<Request> getAll() {
-		return requestService.getAllRequest();
+	@GetMapping("request/getall/{lat}/{lng}/{radius}")
+	public List<Request> getAll(@PathVariable("lat") double lat,@PathVariable("lng") double lng,@PathVariable("radius") double radius) {
+		return requestService.getAllRequest(lat,lng,radius);
 	}
 	
 	@GetMapping("request/{id}")
