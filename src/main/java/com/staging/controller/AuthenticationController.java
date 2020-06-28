@@ -43,7 +43,7 @@ public class AuthenticationController {
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
 	@GetMapping("/")
 	public ResponseEntity<?> hello() {
-		return ResponseEntity.ok("pickup");
+		return ResponseEntity.ok("pickup new version");
 	}
 	
 	
