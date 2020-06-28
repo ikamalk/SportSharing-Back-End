@@ -113,6 +113,14 @@ public class Account {
 		this.state = state;
 		this.birthday = birthday;
 	}
+	
+	
+
+	public Account(int id, String username) {
+		super();
+		this.id = id;
+		this.username = username;
+	}
 
 	public int getId() {
 		return id;

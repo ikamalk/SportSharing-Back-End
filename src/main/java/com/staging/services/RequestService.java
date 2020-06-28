@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import com.google.maps.errors.ApiException;
 import com.staging.dao.RequestDao;
 import com.staging.methods.CalcDistanceAndDuration;
+import com.staging.models.Account;
 import com.staging.models.Request;
 
 @Service
@@ -31,6 +32,7 @@ public class RequestService {
 			try {
 				Request r = distanceAndDurationService.getDist(request, GPSLat, GPSLng);
 				if(r.getDistance() <= radius) {
+					r.setAccount(new Account(r.getAccount().getId(),r.getAccount().getUsername()));
 					requests.add(r);
 				}
 				
