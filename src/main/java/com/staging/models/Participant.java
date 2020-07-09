@@ -20,7 +20,7 @@ public class Participant {
 	
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@ManyToOne
-	@JoinColumn(name = "request_id")
+	@JoinColumn(name = "event_id")
 	private Request request;
 	private int accountId;
 	private String name;
